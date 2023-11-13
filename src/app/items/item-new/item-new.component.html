@@ -1,0 +1,13 @@
+<div>
+  <form [formGroup]="itemsForm" (ngSubmit)="submit()">
+    <div>
+      <label for="text">TO DO: </label>
+      <input type="text" id="text" formControlName="text" />
+      <p *ngIf="invalidField('text')" class="input-error">Field is required</p>
+    </div>
+
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>

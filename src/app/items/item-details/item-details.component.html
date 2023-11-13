@@ -1,0 +1,19 @@
+<div>
+  <input
+    type="checkbox"
+    [checked]="item.isChecked"
+    (change)="toggleCheckbox($event)"
+  />
+
+  <label
+    #labelElement
+    contenteditable="true"
+    (keydown.enter)="
+      $event.preventDefault();
+      labelElement.blur();
+      editText(labelElement.innerText)
+    "
+    >{{ item.text }}
+  </label>
+  <span class="delete-icon" (click)="deleteItem()"> X </span>
+</div>

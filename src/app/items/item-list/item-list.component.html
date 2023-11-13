@@ -1,0 +1,33 @@
+<div class="container_containter">
+  <div *ngIf="filteredItems" class="container">
+    <app-items-filter (onChange)="selectFilter($event)"></app-items-filter>
+
+    <div class="item_count">
+      <span> {{ allItemsCount }} items ({{ pendingItemsCount }} pending)</span>
+    </div>
+
+    <app-item-new (onSubmit)="submitNewItem($event)"></app-item-new>
+
+    <div class="items-list">
+      <div *ngFor="let item of filteredItems; let i = index">
+        <app-item-details
+          [item]="item"
+          (onToggle)="toggleCheckbox(item, $event)"
+          (onTextEdit)="editText(item, $event)"
+          (onDelete)="deleteItem(item)"
+        ></app-item-details>
+
+        <div class="divider-containter">
+          <div
+            *ngIf="
+              i + 1 < filteredItems.length &&
+              !item.isChecked &&
+              filteredItems[i + 1].isChecked
+            "
+            class="item-divider"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

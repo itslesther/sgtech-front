@@ -1,0 +1,37 @@
+
+div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.delete-icon {
+  display: none;
+}
+
+.delete-icon:hover {
+  color: red;
+  font-weight: bold;
+  border-color: black;
+  border-style: solid;
+  padding-left: 1px;
+  padding-right: 1px;
+  display: inline;
+  cursor: pointer;
+}
+
+
+label {
+  font-weight: bold;
+  &:hover {
+    color: teal;
+    ~ .delete-icon {
+      color: red;
+      font-weight: bold;
+      border-color: black;
+      border-style: solid;
+      padding-left: 1px;
+      padding-right: 1px;
+      display: inline;
+    }
+  }
+}
